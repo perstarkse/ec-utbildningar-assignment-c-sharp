@@ -6,6 +6,10 @@ MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Addressbok-WPF", "Addressbok-WPF.csproj", "{D0B93DA3-E1D5-4794-BF8C-2831FA60726C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Addressbok-Console", "..\Adressbok-Console\Addressbok-Console.csproj", "{F383C368-06A8-47E7-A495-35CD285291BE}"
+	ProjectSection(ProjectDependencies) = postProject
+		{24C917D7-334E-482A-AB37-82CAEAA5E24B} = {24C917D7-334E-482A-AB37-82CAEAA5E24B}
+		{B7BF67B7-8005-4C1A-A49C-99FA2F3D9D19} = {B7BF67B7-8005-4C1A-A49C-99FA2F3D9D19}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AddressBook-Classes", "..\AddressBook-Classes\AddressBook-Classes.csproj", "{24C917D7-334E-482A-AB37-82CAEAA5E24B}"
 EndProject
