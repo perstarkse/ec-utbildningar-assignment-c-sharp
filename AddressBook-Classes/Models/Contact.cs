@@ -31,5 +31,6 @@ namespace AddressBook_Classes.Models
         {
            Console.WriteLine($"\nFirst name: {FirstName}\nLast name: {LastName}\nEmail: {Email}\nPhone number: {PhoneNumber}\nAddress: {Address}");
         }
+        public string DisplayName => $"{FirstName} {LastName}";
     }
 }

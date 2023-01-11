@@ -4,9 +4,48 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Adressbok_assignment"
+        xmlns:models="clr-namespace:AddressBook_Classes.Models"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
+        Title="MainWindow" Height="409" Width="600">
+    <Grid Margin="5">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
 
+        <!-- FORM -->
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid Grid.Column="0">
+                <StackPanel Grid.Row="0" Margin="0 0 0 15">
+                    <TextBlock Text="Create a new contact:" FontSize="16" Margin="0 0 0 10" FontWeight="Bold"/>
+                    <TextBlock Text="First name"/>
+                    <TextBox Name="tb_FirstName" Padding="3" />
+                    <TextBlock Text="Last name"/>
+                    <TextBox Name="tb_LastName" Padding="3"/>
+                    <TextBlock Text="Email"/>
+                    <TextBox Name="tb_Email" Padding="3" />
+                    <TextBlock Text="Phone number"/>
+                    <TextBox Name="tb_PhoneNumber" Padding="3" />
+                    <TextBlock Text="Address"/>
+                    <TextBox Name="tb_Address" Padding="3" />
+                </StackPanel>
+            </Grid>
+            <Button Name="btn_Save" Click="Btn_Save_Click" Grid.Row="1" VerticalAlignment="Bottom" Height="30" Margin="0 0 0 10" Content="Save to addressbook"/>
+        </Grid>
+        <!-- CONTACT LIST -->
+        <ListView Name="lv_ContactList" Grid.Column="1" Margin="15 0 0 0">
+            <ListView.ItemTemplate>
+                <DataTemplate DataType="Contact">
+                    <StackPanel Margin="0 5 0 5">
+                        <TextBlock Text="{Binding DisplayName}" FontWeight="Bold" />
+                        <TextBlock Text="{Binding Email}" />
+                    </StackPanel>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
     </Grid>
 </Window>

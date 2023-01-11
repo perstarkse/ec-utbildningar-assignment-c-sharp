@@ -1,7 +1,12 @@
-﻿using System;
+﻿using AddressBook_Classes.Models;
+using AddressBook_Utilities;
+using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -18,11 +23,39 @@ namespace Adressbok_assignment
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+    
     public partial class MainWindow : Window
     {
+        string filePath = $@"{Environment.GetFolderPath(Environment.SpecialFolder.Desktop)}\content.json";
+        private ObservableCollection<Contact> ContactList = new();
         public MainWindow()
         {
             InitializeComponent();
+            try
+            {
+                ContactList = JsonConvert.DeserializeObject<ObservableCollection<Contact>>(FileService.Read(filePath));
+            }
+            catch (Exception ex) { }
+
+            lv_ContactList.ItemsSource = ContactList;
+        }
+
+        private void Btn_Save_Click(object sender, RoutedEventArgs e)
+        {
+            var newContact = new Contact(firstName: tb_FirstName.Text, lastName: tb_LastName.Text, email: tb_Email.Text, phoneNumber: tb_PhoneNumber.Text, address: tb_Address.Text);
+            ContactList.Add(newContact);
+            FileService.Save(filePath, JsonConvert.SerializeObject(ContactList));
+            ClearForm();
+        }
+
+        private void ClearForm()
+        {
+            tb_FirstName.Text = "";
+            tb_LastName.Text = "";
+            tb_Email.Text = "";
+            tb_PhoneNumber.Text = "";
+            tb_Address.Text = "";
         }
     }
 }

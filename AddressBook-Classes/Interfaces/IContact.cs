@@ -15,5 +15,7 @@ namespace AddressBook_Classes.Interfaces
         string Address { get; set; }
 
         abstract void DisplayContact();
+
+        string DisplayName => $"{FirstName} {LastName}";
     }
 }
