@@ -15,7 +15,7 @@ catch (Exception ex) { }
 
 do {
     Console.Clear();
-    Console.WriteLine("\nWelcome to the addressbook \n\n1.Create a contact \n2.Show all contacts \n3.Show a Specific contact \n4.Remove a specific contact \n\nChoose one of the options above: \n");
+    Console.WriteLine("\nWelcome to the addressbook \n\n1.Create a contact \n2.Show all contacts \n3.Show a Specific contact \n4.Remove a specific contact \n5.Exit the application \n\nChoose one of the options above: \n");
     int.TryParse(Console.ReadLine(), out int selection);
     switch (selection)
     {
@@ -60,6 +60,11 @@ do {
             }
             else { Console.WriteLine("\nDid nothing..."); }
             UXControl.ClearConsole();
+            break;
+        case 5: 
+            Console.Clear();
+            Console.WriteLine("Closing down shop....");
+            isRunning= false;
             break;
         default:
             Console.WriteLine("Choose one of the correct alternatives\n");
