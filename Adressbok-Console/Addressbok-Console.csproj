@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net7.0</TargetFramework>
+    <RootNamespace>Adressbok_Console</RootNamespace>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
+    <PackageReference Include="Spectre.Console" Version="0.45.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AddressBook-Classes\AddressBook-Classes.csproj" />
+    <ProjectReference Include="..\AddressBook-Utilities\AddressBook-Utilities.csproj" />
+  </ItemGroup>
+
+</Project>

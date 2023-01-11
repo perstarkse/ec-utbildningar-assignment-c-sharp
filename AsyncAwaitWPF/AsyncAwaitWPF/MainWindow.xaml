@@ -1,0 +1,34 @@
+﻿<Window x:Class="AsyncAwaitWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:AsyncAwaitWPF"
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+        Title="AsyncAwait" Height="450" Width="400">
+    <Grid Margin="20">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.Row="0">
+            <Button Name="btnBlockingCode" Content="Blocking Code" Padding="8" Margin="0 5" Click="btnBlockingCode_Click" />
+            <Button Name="btnNoneBlockingCode" Content="Non-Blocking Code" Padding="8" Margin="0 5" Click="btnNoneBlockingCode_Click" />
+        </StackPanel>
+        <Grid Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Status" FontSize="11" />
+            <Border Grid.Row="1" BorderBrush="LightGray" BorderThickness="1" Margin="0 5 0 0 " Padding="5" >
+                <TextBlock Name="tBlockStatus" FontSize="11" >
+                    
+                </TextBlock>
+            </Border>
+        </Grid>
+        
+    </Grid>
+</Window>
