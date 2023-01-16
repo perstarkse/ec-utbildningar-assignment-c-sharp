@@ -1,5 +1,7 @@
 ﻿using AddressBook_Classes.Models;
 using AddressBook_Utilities;
+using Adressbok_assignment.Controls;
+using Adressbok_assignment.Pages;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -39,6 +41,7 @@ namespace Adressbok_assignment
             catch (Exception ex) { }
 
             lv_ContactList.ItemsSource = ContactList;
+            frame_PageFrame.Navigate(new Uri("/Pages/Contacts.xaml", UriKind.RelativeOrAbsolute));
         }
 
         private void Btn_Save_Click(object sender, RoutedEventArgs e)
@@ -56,6 +59,12 @@ namespace Adressbok_assignment
             tb_Email.Text = "";
             tb_PhoneNumber.Text = "";
             tb_Address.Text = "";
+        }
+
+        private void Lbox_NavMenu_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            var selected = Lbox_NavMenu.SelectedItem as NavButton;
+            frame_PageFrame.Navigate(selected?.NavLink);
         }
     }
 }
