@@ -1,14 +1,7 @@
-﻿using AddressBook_Classes.Models;
-using AddressBook_Utilities;
-using Adressbok_assignment.Controls;
-using Adressbok_assignment.Pages;
-using Newtonsoft.Json;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
-using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -20,16 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Adressbok_assignment
+namespace Adressbok_assignment.Views
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ContactViews.xaml
     /// </summary>
-    /// 
-    
-    public partial class MainWindow : Window
+    public partial class ContactViews : UserControl
     {
-        public MainWindow()
+        public ContactViews()
         {
             InitializeComponent();
         }
