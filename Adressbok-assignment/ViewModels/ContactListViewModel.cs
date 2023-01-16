@@ -20,9 +20,6 @@ namespace Adressbok_assignment.ViewModels
             fileService = new FileService();
             contacts = fileService.Contacts();
         }
-
-        [ObservableProperty]
-        private string pageTitle = "Contacts:";
         [ObservableProperty]
         private ObservableCollection<Contact> contacts;
     }

@@ -18,8 +18,8 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <StackPanel Grid.Column="0">
-            <Button Command="{Binding GoToCreateContactCommand}" Content="T" Padding="6" Margin="3"/>
-            <Button Command="{Binding GoToContactsCommand}" Content="A" Padding="6" Margin="3"/>
+            <Button Command="{Binding GoToCreateContactCommand}" Content="&#x2b;" Style="{StaticResource navButton}"/>
+            <Button Command="{Binding GoToContactsCommand}" Content="&#xf03a;" Style="{StaticResource navButton}"/>
         </StackPanel>
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
