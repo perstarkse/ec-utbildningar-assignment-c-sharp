@@ -4,15 +4,18 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Adressbok_assignment"
-        xmlns:controls="clr-namespace:Adressbok_assignment.Controls"
         xmlns:viewmodels="clr-namespace:Adressbok_assignment.ViewModels"
         xmlns:views="clr-namespace:Adressbok_assignment.Views"
         d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
+        WindowStyle="None"
+        WindowState="Normal"
+        Background="Transparent"
+        AllowsTransparency="True"
         WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="409" Width="700">
-    
-    <Grid Margin="5">
+    <Border BorderThickness="2" BorderBrush="Gray" CornerRadius="15" Background="White">
+    <Grid Margin="5" Background="White">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
@@ -31,7 +34,6 @@
                 </DataTemplate>
             </ContentControl.Resources>
         </ContentControl>
-        
-        
     </Grid>
+    </Border>
 </Window>

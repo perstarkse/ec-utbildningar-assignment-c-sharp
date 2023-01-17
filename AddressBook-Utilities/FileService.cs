@@ -45,23 +45,5 @@ namespace AddressBook_Utilities
             }
             return items;
         }
-
-        public static void Save(string path, string content)
-        {
-            using var sw = new StreamWriter(path);
-            sw.WriteLine(content);
-        }
-        public static string Read(string path)
-        {
-            try
-            {
-                using var sr = new StreamReader(path);
-                return sr.ReadToEnd();
-            }
-            catch
-            {
-                return null!;
-            }
-        }
     }
 }

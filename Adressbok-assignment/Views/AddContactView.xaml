@@ -8,20 +8,20 @@
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewmodels:AddContactViewModel}"
              d:DesignHeight="350" d:DesignWidth="300">
-    <Grid Margin="5">
+    <Grid Margin="5 0 0 0">
         <Grid Grid.Column="0">
-            <StackPanel Grid.Row="0" Margin="0 0 0 15">
+            <StackPanel Grid.Row="0" Margin="0">
                 <TextBlock Text="{Binding PageTitle}" FontSize="16" Margin="0 0 0 10" FontWeight="Bold"/>
                 <TextBlock Text="First name"/>
-                <TextBox Text="{Binding FirstName}" Padding="3" />
+                <TextBox Text="{Binding FirstName}" Padding="0 3 0 3" />
                 <TextBlock Text="Last name"/>
-                <TextBox Text="{Binding LastName}" Padding="3"/>
+                <TextBox Text="{Binding LastName}" Padding="0 3"/>
                 <TextBlock Text="Email"/>
-                <TextBox Text="{Binding Email}" Padding="3" />
+                <TextBox Text="{Binding Email}" Padding="0 3" />
                 <TextBlock Text="Phone number"/>
-                <TextBox Text="{Binding PhoneNumber}" Padding="3" />
+                <TextBox Text="{Binding PhoneNumber}" Padding="0 3" />
                 <TextBlock Text="Address"/>
-                <TextBox Text="{Binding Address}" Padding="3" />
+                <TextBox Text="{Binding Address}" Padding="0 3" />
             </StackPanel>
         </Grid>
         <Button Command="{Binding AddContactCommand}" Grid.Row="1" VerticalAlignment="Bottom" Height="30" Margin="0 0 0 5" Content="Save to addressbook"/>

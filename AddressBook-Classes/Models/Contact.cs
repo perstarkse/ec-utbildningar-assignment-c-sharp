@@ -1,6 +1,7 @@
 ﻿using AddressBook_Classes.Interfaces;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,5 +33,6 @@ namespace AddressBook_Classes.Models
            Console.WriteLine($"\nFirst name: {FirstName}\nLast name: {LastName}\nEmail: {Email}\nPhone number: {PhoneNumber}\nAddress: {Address}");
         }
         public string DisplayName => $"{FirstName} {LastName}";
+
     }
 }

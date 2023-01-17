@@ -1,7 +1,5 @@
 ﻿using AddressBook_Classes.Models;
 using AddressBook_Utilities;
-using Adressbok_assignment.Controls;
-using Adressbok_assignment.Pages;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;

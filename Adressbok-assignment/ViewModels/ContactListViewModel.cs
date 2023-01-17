@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using AddressBook_Classes.Models;
 using AddressBook_Utilities;
 using CommunityToolkit.Mvvm.ComponentModel;
-
+using CommunityToolkit.Mvvm.Input;
 
 namespace Adressbok_assignment.ViewModels
 {
@@ -22,5 +22,13 @@ namespace Adressbok_assignment.ViewModels
         }
         [ObservableProperty]
         private ObservableCollection<Contact> contacts;
+
+        [RelayCommand]
+        private void RemoveContact(Contact selectedItem)
+        {
+            contacts.Remove(selectedItem);
+            fileService.ContactList.Remove(selectedItem);
+            fileService.SaveToFile();
+        }
     }
 }
