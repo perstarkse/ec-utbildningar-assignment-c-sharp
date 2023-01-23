@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using AddressBook_Classes.Models;
 using AddressBook_Utilities;
 using CommunityToolkit.Mvvm.ComponentModel;
@@ -26,9 +27,13 @@ public partial class ContactListViewModel : ObservableObject
         [RelayCommand]
         private void RemoveContact(Contact selectedItem)
         {
-            contacts.Remove(selectedItem);
-            fileService.ContactList.Remove(selectedItem);
-            fileService.SaveToFile();
+            MessageBoxResult confirmation = MessageBox.Show("Do you really want to delete this contact?","yes", MessageBoxButton.OKCancel);
+            if (confirmation == MessageBoxResult.OK) {
+                contacts.Remove(selectedItem);
+                fileService.ContactList.Remove(selectedItem);
+                fileService.SaveToFile();
+            }
+            else { }
         }
     }
 }
