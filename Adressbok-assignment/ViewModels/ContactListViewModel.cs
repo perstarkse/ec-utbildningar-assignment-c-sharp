@@ -11,7 +11,7 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace Adressbok_assignment.ViewModels
 {
-    public partial class ContactListViewModel : ObservableObject
+public partial class ContactListViewModel : ObservableObject
     {
         private readonly FileService fileService;
 

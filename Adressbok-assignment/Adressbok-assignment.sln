@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddressBook-Utilities", "..
 		{24C917D7-334E-482A-AB37-82CAEAA5E24B} = {24C917D7-334E-482A-AB37-82CAEAA5E24B}
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Addressbok-Console-Test", "..\Addressbok-Console-Test\Addressbok-Console-Test.csproj", "{4F975255-ECDA-49C1-8B3B-05D7AA48F459}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,6 +42,10 @@ Global
 		{B7BF67B7-8005-4C1A-A49C-99FA2F3D9D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B7BF67B7-8005-4C1A-A49C-99FA2F3D9D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B7BF67B7-8005-4C1A-A49C-99FA2F3D9D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4F975255-ECDA-49C1-8B3B-05D7AA48F459}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4F975255-ECDA-49C1-8B3B-05D7AA48F459}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4F975255-ECDA-49C1-8B3B-05D7AA48F459}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4F975255-ECDA-49C1-8B3B-05D7AA48F459}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
