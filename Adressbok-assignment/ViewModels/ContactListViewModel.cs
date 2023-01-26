@@ -16,13 +16,26 @@ public partial class ContactListViewModel : ObservableObject
     {
         private readonly FileService fileService;
 
-        public ContactListViewModel()
+        public ContactListViewModel(string _index)
         {
+            //this.selectedItem = selectedItem;
             fileService = new FileService();
             contacts = fileService.Contacts();
+            if (_index != null)
+            {
+                index = int.Parse(_index);
+            }
+            else index = 0;
+            selectedItem = contacts[index];
         }
+
+        int index;
+
         [ObservableProperty]
         private ObservableCollection<Contact> contacts;
+
+        [ObservableProperty]
+        private Contact selectedItem = null!;
 
         [RelayCommand]
         private void RemoveContact(Contact selectedItem)

@@ -22,8 +22,8 @@
         </Grid.ColumnDefinitions>
         <StackPanel x:Name="Navigation" Grid.Column="0">
             <Button Command="{Binding GoToCreateContactCommand}" Content="&#x2b;" Style="{StaticResource navButton}"/>
-            <Button Command="{Binding GoToContactsCommand}" Content="&#xf03a;" Style="{StaticResource navButton}"/>
-            <Button Margin="0 120 0 0" Command="{Binding CloseAppCommand}" Content="&#xe023;" Style="{StaticResource navButton}"/>
+                <Button Command="{Binding GoToContactsCommand}" Content="&#xf03a;" Style="{StaticResource navButton}" />
+                <Button Margin="0 120 0 0" Command="{Binding CloseAppCommand}" Content="&#xe023;" Style="{StaticResource navButton}"/>
             </StackPanel>
         <ContentControl Grid.Column="1" Content="{Binding CurrentViewModel}">
             <ContentControl.Resources>
@@ -33,10 +33,10 @@
                 <DataTemplate DataType="{x:Type viewmodels:AddContactViewModel}">
                     <views:AddContactView />
                 </DataTemplate>
-                    <DataTemplate DataType="{x:Type viewmodels:EditContactViewModel}">
-                        <views:EditContactView />
-                    </DataTemplate>
-                </ContentControl.Resources>
+                <DataTemplate DataType="{x:Type viewmodels:EditContactViewModel}">
+                    <views:EditContactView />
+                </DataTemplate>
+            </ContentControl.Resources>
         </ContentControl>
     </Grid>
     </Border>

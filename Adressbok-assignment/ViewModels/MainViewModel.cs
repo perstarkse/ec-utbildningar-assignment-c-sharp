@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,21 +15,22 @@ namespace Adressbok_assignment.ViewModels
         [ObservableProperty]
         private ObservableObject currentViewModel;
 
+        
         [RelayCommand]
-        private void GoToContacts() => CurrentViewModel = new ContactListViewModel();
+        private void GoToContacts(string index) => CurrentViewModel = new ContactListViewModel(index);
 
         [RelayCommand]
         private void GoToCreateContact() => CurrentViewModel = new AddContactViewModel();
 
         [RelayCommand]
-        private void GoToEditContact(Contact _contact) => CurrentViewModel = new EditContactViewModel(_contact);
+        private void GoToEditContact(Contact contact) => CurrentViewModel = new EditContactViewModel(contact);
 
         [RelayCommand]
         private void CloseApp() { System.Windows.Application.Current.Shutdown(); }
 
         public MainViewModel()
         {
-            CurrentViewModel = new ContactListViewModel();
+            CurrentViewModel = new ContactListViewModel(null);
         }
     }
 }
