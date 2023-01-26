@@ -15,22 +15,21 @@ namespace Adressbok_assignment.ViewModels
         [ObservableProperty]
         private ObservableObject currentViewModel;
 
-        
         [RelayCommand]
-        private void GoToContacts(string index) => CurrentViewModel = new ContactListViewModel(index);
+        private void GoToContacts() => CurrentViewModel = new ContactListViewModel();
 
         [RelayCommand]
         private void GoToCreateContact() => CurrentViewModel = new AddContactViewModel();
 
         [RelayCommand]
-        private void GoToEditContact(Contact contact) => CurrentViewModel = new EditContactViewModel(contact);
+        private void GoToEditContact() => CurrentViewModel = new EditContactViewModel();
 
         [RelayCommand]
         private void CloseApp() { System.Windows.Application.Current.Shutdown(); }
 
         public MainViewModel()
         {
-            CurrentViewModel = new ContactListViewModel(null);
+            CurrentViewModel = new ContactListViewModel();
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using Adressbok_assignment.ViewModels;
+﻿using AddressBook_Classes.Models;
+using Adressbok_assignment.Resources.Messenger;
+using Adressbok_assignment.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using System;
@@ -16,13 +18,14 @@ namespace Adressbok_assignment
     /// </summary>
     public partial class App : Application
     {
-        public static IHost? app { get; private set; }  
+        public static IHost? app { get; private set; }
 
         public App()
         {
             app = Host.CreateDefaultBuilder().ConfigureServices((context, services) =>
             {
                 services.AddSingleton<MainWindow>();
+                services.AddSingleton<SimpleMessenger>();
             }).Build();
         }
         protected override async void OnStartup(StartupEventArgs e)

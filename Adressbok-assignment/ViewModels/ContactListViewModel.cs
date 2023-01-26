@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using AddressBook_Classes.Models;
 using AddressBook_Utilities;
+using Adressbok_assignment.Resources.Messenger;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 
@@ -15,27 +17,41 @@ namespace Adressbok_assignment.ViewModels
 public partial class ContactListViewModel : ObservableObject
     {
         private readonly FileService fileService;
+        private SimpleMessenger _simpleMessenger;
 
-        public ContactListViewModel(string _index)
+
+        public ContactListViewModel()
         {
-            //this.selectedItem = selectedItem;
             fileService = new FileService();
             contacts = fileService.Contacts();
-            if (_index != null)
-            {
-                index = int.Parse(_index);
-            }
-            else index = 0;
-            selectedItem = contacts[index];
+            _simpleMessenger = SimpleMessenger.Instance;
+            _simpleMessenger.MessageValueChanged += OnSimpleMessengerValueChanged;
         }
 
-        int index;
+        private void OnSimpleMessengerValueChanged(object sender, SimpleMessenger.MessageValueChangedEventArgs e)
+        {
+            int itemIndex = contacts.IndexOf(contacts.Where(x => x.Guid == e.selectedContact.Guid).FirstOrDefault());
+            if (itemIndex < 0)
+            {
+
+            }
+            else
+            {
+                selectedItem = contacts[itemIndex];
+            }
+        }
 
         [ObservableProperty]
         private ObservableCollection<Contact> contacts;
 
         [ObservableProperty]
         private Contact selectedItem = null!;
+
+        [RelayCommand]
+        private void SendContact(Contact selectedItem)
+        {
+            _simpleMessenger.RaiseMessageValueChanged(selectedItem);
+        }
 
         [RelayCommand]
         private void RemoveContact(Contact selectedItem)

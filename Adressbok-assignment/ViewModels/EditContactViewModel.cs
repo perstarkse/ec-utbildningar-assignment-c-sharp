@@ -1,10 +1,12 @@
 ﻿using AddressBook_Classes.Models;
 using AddressBook_Utilities;
+using Adressbok_assignment.Resources.Messenger;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,17 +16,25 @@ namespace Adressbok_assignment.ViewModels
     public partial class EditContactViewModel : ObservableObject
     {
         private readonly FileService fileService;
+        private SimpleMessenger _simpleMessenger;
 
-        public EditContactViewModel(Contact _contact)
+
+        public EditContactViewModel()
         {
             fileService = new FileService();
             contacts = fileService.Contacts();
-            guid = _contact.Guid;
-            firstName = _contact.FirstName;
-            lastName = _contact.LastName;
-            email = _contact.Email; 
-            phoneNumber = _contact.PhoneNumber;
-            address = _contact.Address;
+            _simpleMessenger = SimpleMessenger.Instance;
+            _simpleMessenger.MessageValueChanged += OnSimpleMessengerValueChanged;
+        }
+
+        private void OnSimpleMessengerValueChanged(object sender, SimpleMessenger.MessageValueChangedEventArgs e)
+        {
+            firstName = e.selectedContact.FirstName;
+            lastName = e.selectedContact.LastName;
+            email = e.selectedContact.Email;
+            phoneNumber = e.selectedContact.PhoneNumber;
+            address = e.selectedContact.Address;
+            guid = e.selectedContact.Guid;
         }
 
         [ObservableProperty]
@@ -42,7 +52,6 @@ namespace Adressbok_assignment.ViewModels
         [ObservableProperty]
         private Guid guid;
 
-
         [ObservableProperty]
         private ObservableCollection<Contact> contacts;
 
@@ -56,6 +65,13 @@ namespace Adressbok_assignment.ViewModels
             foundUser.PhoneNumber = phoneNumber;
             foundUser.Address = address;
             fileService.SaveToFile();
+        }
+
+        [RelayCommand]
+        private void SendContact()
+        {
+            var contactToBeSent = fileService.ContactList.FirstOrDefault(u => u.Guid == Guid);
+            _simpleMessenger.RaiseMessageValueChanged(contactToBeSent);
         }
     }
 }

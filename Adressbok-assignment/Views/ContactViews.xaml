@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Adressbok_assignment.Views"
-             xmlns:viewmodels="clr-namespace:Adressbok_assignment.ViewModels"
+             xmlns:viewmodels="clr-namespace:Adressbok_assignment.ViewModels" xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewmodels:ContactListViewModel}"
              d:DesignHeight="450" d:DesignWidth="600">
@@ -40,7 +40,14 @@
                 <TextBlock Text="{Binding SelectedItem.Address, ElementName=listContacts}" Style="{StaticResource detailedContactTextBlock}" />
                 <StackPanel Margin="0 30 0 10" Orientation="Horizontal" HorizontalAlignment="Center">
                     <Button IsEnabled="{Binding SelectedItems.Count, ElementName=listContacts}" Command="{Binding RemoveContactCommand}" CommandParameter="{Binding ElementName=listContacts, Path=SelectedItem}" Content="Remove" Width="45" Height="45" Background="Transparent" Margin="0 0 15 0" Cursor="Hand" />
-                    <Button IsEnabled="{Binding SelectedItems.Count, ElementName=listContacts}" Command="{Binding ElementName=Navigation, Path=DataContext.GoToEditContactCommand}" CommandParameter="{Binding ElementName=listContacts, Path=SelectedItem}" Content="Edit" Width="45" Height="45" Background="Transparent" Margin="0 0 0 0" Cursor="Hand"/>
+                    <Button IsEnabled="{Binding SelectedItems.Count, ElementName=listContacts}" Content="Edit" Width="45" Height="45" Background="Transparent" Margin="0 0 0 0" Cursor="Hand">
+                        <i:Interaction.Triggers>
+                            <i:EventTrigger EventName="Click">
+                                <i:InvokeCommandAction Command="{Binding ElementName=Navigation, Path=DataContext.GoToEditContactCommand}" />
+                                <i:InvokeCommandAction Command="{Binding SendContactCommand}" CommandParameter="{Binding ElementName=listContacts, Path=SelectedItem}" />
+                            </i:EventTrigger>
+                        </i:Interaction.Triggers>
+                    </Button>
                 </StackPanel>
             </StackPanel>
         </Grid>
