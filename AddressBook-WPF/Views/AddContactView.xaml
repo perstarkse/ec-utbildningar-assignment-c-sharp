@@ -5,6 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:Adressbok_assignment.Views"
              xmlns:viewmodels="clr-namespace:Adressbok_assignment.ViewModels"
+             xmlns:i="http://schemas.microsoft.com/xaml/behaviors"
              mc:Ignorable="d" 
              d:DataContext="{d:DesignInstance Type=viewmodels:AddContactViewModel}"
              d:DesignHeight="350" d:DesignWidth="300">
@@ -24,6 +25,13 @@
                 <TextBox Text="{Binding Address}" Padding="0 3" />
             </StackPanel>
         </Grid>
-        <Button Command="{Binding AddContactCommand}" Grid.Row="1" VerticalAlignment="Bottom" Height="30" Margin="0 0 0 5" Content="Save to addressbook"/>
+        <Button Grid.Row="1" VerticalAlignment="Bottom" Height="30" Margin="0 0 0 5" Content="Save to addressbook">
+            <i:Interaction.Triggers>
+                <i:EventTrigger EventName="Click">
+                    <i:InvokeCommandAction Command="{Binding AddContactCommand}" />
+                    <i:InvokeCommandAction Command="{Binding ElementName=Navigation, Path=DataContext.GoToContactsCommand}" />
+                </i:EventTrigger>
+            </i:Interaction.Triggers>
+        </Button>
     </Grid>
 </UserControl>

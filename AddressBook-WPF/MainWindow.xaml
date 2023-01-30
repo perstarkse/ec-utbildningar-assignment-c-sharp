@@ -20,7 +20,7 @@
             <ColumnDefinition Width="auto" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <StackPanel x:Name="Navigation" Grid.Column="0">
+        <StackPanel x:Name="Navigation" Grid.Column="0" >
             <Button Command="{Binding GoToCreateContactCommand}" Content="&#x2b;" Style="{StaticResource navButton}"/>
                 <Button Command="{Binding GoToContactsCommand}" Content="&#xf03a;" Style="{StaticResource navButton}" />
                 <Button Margin="0 120 0 0" Command="{Binding CloseAppCommand}" Content="&#xe023;" Style="{StaticResource navButton}"/>
