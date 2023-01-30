@@ -23,6 +23,7 @@
                 <TextBox Text="{Binding PhoneNumber}" Padding="0 3" />
                 <TextBlock Text="Address"/>
                 <TextBox Text="{Binding Address}" Padding="0 3" />
+                <TextBlock Text="{Binding ErrorMessage}" FontSize="16" Margin="0 15 0 0" FontWeight="Bold"/>
             </StackPanel>
         </Grid>
         <Button Grid.Row="1" VerticalAlignment="Bottom" Height="30" Margin="0 0 0 5" Content="Save to addressbook">

@@ -16,7 +16,7 @@ namespace Adressbok_assignment.ViewModels
 
         public AddContactViewModel()
         {
-            fileService = new FileService(); 
+            fileService = new FileService();
         }
 
         [ObservableProperty]
@@ -32,6 +32,8 @@ namespace Adressbok_assignment.ViewModels
         [ObservableProperty]
         private string address = string.Empty;
 
+        [ObservableProperty]
+        private string errorMessage = string.Empty;
         [RelayCommand]
         private void AddContact()
         {
