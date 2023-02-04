@@ -1,5 +1,10 @@
 using AddressBook_Classes.Models;
 using AddressBook_Utilities;
+using Adressbok_assignment;
+using Adressbok_assignment.ViewModels;
+using CommunityToolkit.Mvvm.ComponentModel;
+using Spectre.Console;
+using System.Collections.ObjectModel;
 
 namespace AddressBook_Test_XUNIT_
 {
@@ -7,11 +12,12 @@ namespace AddressBook_Test_XUNIT_
     {
         private FileService fileService;
         Contact contact = new Contact("firstName", "lastName", "email", "phoneNumber", "address");
-
+        private MainViewModel mainViewModel;
 
         public UnitTests()
         {
             fileService = new FileService();
+            mainViewModel = new MainViewModel();
         }
 
         [Fact]
@@ -50,6 +56,33 @@ namespace AddressBook_Test_XUNIT_
             var countAfter = fileService.ContactList.Count;
 
             Assert.True(countBefore < countAfter);
+        }
+
+        [Fact]
+        public void ShowsAViewmodelOnStart()
+        {
+            Assert.NotNull(mainViewModel.currentViewModel);
+        }
+        [Fact]
+        public void ChangeViewModel()
+        {
+            var defaultViewModel = mainViewModel.currentViewModel;
+            mainViewModel.GoToCreateContact();
+            Assert.NotEqual(defaultViewModel, mainViewModel.currentViewModel);
+
+        }
+        [Fact]
+        public void NavigateToCreateContactViewModel()
+        {
+            mainViewModel.GoToCreateContact();
+            Assert.IsType<AddContactViewModel>(mainViewModel.currentViewModel);
+        }
+        [Fact]
+        public void DisplaysContactList()
+        {
+            ContactListViewModel contactListViewModel = new ContactListViewModel();
+            mainViewModel.CurrentViewModel = contactListViewModel;
+            Assert.NotNull(contactListViewModel.contacts);
         }
     }
 }

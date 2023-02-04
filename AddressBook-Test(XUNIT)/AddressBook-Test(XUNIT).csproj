@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net7.0-windows7.0</TargetFramework>
     <RootNamespace>AddressBook_Test_XUNIT_</RootNamespace>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
@@ -25,6 +25,7 @@
   <ItemGroup>
     <ProjectReference Include="..\AddressBook-Classes\AddressBook-Classes.csproj" />
     <ProjectReference Include="..\AddressBook-Utilities\AddressBook-Utilities.csproj" />
+    <ProjectReference Include="..\AddressBook-WPF\AddressBook-WPF.csproj" />
   </ItemGroup>
 
 </Project>

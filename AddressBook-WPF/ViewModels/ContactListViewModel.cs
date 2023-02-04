@@ -28,7 +28,7 @@ public partial class ContactListViewModel : ObservableObject
             _simpleMessenger.MessageValueChanged += OnSimpleMessengerValueChanged;
         }
 
-        private void OnSimpleMessengerValueChanged(object sender, SimpleMessenger.MessageValueChangedEventArgs e)
+        public void OnSimpleMessengerValueChanged(object sender, SimpleMessenger.MessageValueChangedEventArgs e)
         {
             int itemIndex = contacts.IndexOf(contacts.Where(x => x.Guid == e.selectedContact.Guid).FirstOrDefault());
             if (itemIndex < 0)
@@ -42,19 +42,19 @@ public partial class ContactListViewModel : ObservableObject
         }
 
         [ObservableProperty]
-        private ObservableCollection<Contact> contacts;
+        public ObservableCollection<Contact> contacts;
 
         [ObservableProperty]
-        private Contact selectedItem = null!;
+        public Contact selectedItem = null!;
 
         [RelayCommand]
-        private void SendContact(Contact selectedItem)
+        public void SendContact(Contact selectedItem)
         {
             _simpleMessenger.RaiseMessageValueChanged(selectedItem);
         }
 
         [RelayCommand]
-        private void RemoveContact(Contact selectedItem)
+        public void RemoveContact(Contact selectedItem)
         {
             MessageBoxResult confirmation = MessageBox.Show("Do you really want to delete this contact?","yes", MessageBoxButton.OKCancel);
             if (confirmation == MessageBoxResult.OK) {

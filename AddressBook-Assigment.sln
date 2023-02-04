@@ -12,6 +12,9 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddressBook-Test(NUNIT)", "AddressBook-Test(NUNIT)\AddressBook-Test(NUNIT).csproj", "{4B32336F-64D5-458D-8261-5E8C2E8D3853}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddressBook-Test(XUNIT)", "AddressBook-Test(XUNIT)\AddressBook-Test(XUNIT).csproj", "{8795B430-39A5-45BC-B741-DC34B8EDFCEF}"
+	ProjectSection(ProjectDependencies) = postProject
+		{F078E6B2-FFD6-4855-A7EF-F436EE515EE4} = {F078E6B2-FFD6-4855-A7EF-F436EE515EE4}
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AddressBook-Utilities", "AddressBook-Utilities\AddressBook-Utilities.csproj", "{EB3D20FE-5EC8-431E-A5B1-D6C26C076576}"
 EndProject

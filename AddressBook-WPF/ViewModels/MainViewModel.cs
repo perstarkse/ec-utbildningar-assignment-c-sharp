@@ -13,19 +13,19 @@ namespace Adressbok_assignment.ViewModels
     public partial class MainViewModel : ObservableObject
     {
         [ObservableProperty]
-        private ObservableObject currentViewModel;
+        public ObservableObject currentViewModel;
 
         [RelayCommand]
-        private void GoToContacts() => CurrentViewModel = new ContactListViewModel();
+        public void GoToContacts() => CurrentViewModel = new ContactListViewModel();
 
         [RelayCommand]
-        private void GoToCreateContact() => CurrentViewModel = new AddContactViewModel();
+        public void GoToCreateContact() => CurrentViewModel = new AddContactViewModel();
 
         [RelayCommand]
-        private void GoToEditContact() => CurrentViewModel = new EditContactViewModel();
+        public void GoToEditContact() => CurrentViewModel = new EditContactViewModel();
 
         [RelayCommand]
-        private void CloseApp() { System.Windows.Application.Current.Shutdown(); }
+        public void CloseApp() { System.Windows.Application.Current.Shutdown(); }
 
         public MainViewModel()
         {
