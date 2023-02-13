@@ -8,5 +8,8 @@ namespace SQLConsole.Classes
 {
     internal class Status
     {
+        internal int Id { get; set; }
+        internal string StatusDescription { get; set; } = string.Empty;
+        internal bool Finalized { get; set; } = false;
     }
 }

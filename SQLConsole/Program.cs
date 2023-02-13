@@ -2,9 +2,12 @@
 do
 {
     Console.Clear();
-    Console.WriteLine("WELCOME");
+    Console.WriteLine("WELCOME TO THE GRAND MENU\n");
+    Console.WriteLine("1. Create new address");
+    Console.WriteLine("2. Show all addresses");
+    Console.WriteLine("3. Show a specific address");
+    Console.WriteLine("Select one of the above");
     int.TryParse(Console.ReadLine(), out int selection);
-
     switch (selection)
     {
         case 1:
@@ -21,7 +24,7 @@ do
             break;
         case 5:
             Console.WriteLine("did 5");
-            isRunning= false;
+            isRunning = false;
             break;
         default:
             Console.WriteLine("press the right buttons yo");
