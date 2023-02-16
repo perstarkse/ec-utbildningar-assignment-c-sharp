@@ -5,6 +5,7 @@ bool isRunning = true;
 do
 {
     DBService database = new DBService();
+    MenuService menu = new MenuService();
     Console.Clear();
     Console.WriteLine("WELCOME TO THE GRAND MENU\n");
     Console.WriteLine("1. Create new site");
@@ -18,14 +19,13 @@ do
     switch (selection)
     {
         case 1:
-            Console.WriteLine("did create");
-            database.SaveSite();
+            menu.CreateNewSite();
             break;
         case 2:
-            Console.WriteLine("did show all");
+            menu.ListAllAddresses();
             break;
         case 3:
-            Console.WriteLine("did 3");
+            menu.ListSpecificContact();
             break;
         case 4:
             Console.WriteLine("exitted");
